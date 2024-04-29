@@ -24,10 +24,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
-  .title-navbar-container {
-    background-color: darkblue;
-  } 
-  
+
   /* Style for each clothing list item */
   li {
     border: 1px solid #ccc;
