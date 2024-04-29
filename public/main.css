@@ -24,6 +24,9 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+  .title-navbar-container {
+    background-color: darkblue;
+  } 
   
   /* Style for each clothing list item */
   li {
@@ -154,7 +157,7 @@
     display: block;
     color: #f2f2f2;
     text-align: center;
-    padding: 0px 0px;
+    padding: 14px 20px;
     text-decoration: none;
     font-family: "Trebuchet MS";
   }
