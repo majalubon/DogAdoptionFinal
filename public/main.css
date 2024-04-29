@@ -7,7 +7,7 @@
       font-size: 50px;
       color: white;
       text-align: center;
-      background-color: darkblue;
+      background-color: darkcyan;
       
   }
   
@@ -142,7 +142,7 @@
   /* Style the top navigation bar */
   .topnav {
     overflow: hidden;
-    background-color: darkblue;
+    background-color: darkcyan;
     display: flex;
     justify-content: center;
     margin-top: 10px;
