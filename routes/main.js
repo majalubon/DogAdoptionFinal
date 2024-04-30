@@ -442,12 +442,13 @@ module.exports = function(app, webData) {
         req.session.destroy(function(err) {
             if (err) {
                 console.error('Error logging out:', err);
+                res.status(500).send('An error occurred while logging out.');
+            } else {
+                // Redirect to the home page after logout
+                res.redirect('/');
             }
-            // Redirect to the home page after logout
-            res.redirect('/');
         });
     });
-
     app.get('/dogs/:id', (req, res) => {
         const dogId = req.params.id;
         // Fetch dog details from the database based on the ID
