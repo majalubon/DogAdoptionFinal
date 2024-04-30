@@ -208,7 +208,7 @@ module.exports = function(app, webData) {
         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
         res.render("register.ejs", dataWithLoggedIn);                                                                     
     });                                                                                                 
-    app.post('/registered', [
+    app.post('/usr/367/registered', [
         // Validation rules
         body('username').notEmpty().trim().escape(),
         body('first').notEmpty().trim().escape(),
@@ -255,7 +255,7 @@ module.exports = function(app, webData) {
         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
         res.render('login.ejs', dataWithLoggedIn);
     });
-    app.post('/loggedin', function (req, res) {
+    app.post('/usr/367/loggedin', function (req, res) {
         const bcrypt = require('bcrypt');
     
         let username = req.body.username;
@@ -419,7 +419,7 @@ module.exports = function(app, webData) {
                     };
     
                     // Render the 'dogDetails.ejs' template with the prepared data
-                    res.render('dogDetails.ejs', data);
+                    res.render('posts.ejs', data);
                 });
             });
         });
@@ -439,7 +439,7 @@ module.exports = function(app, webData) {
      
     
    
-    app.get('/logout', function (req, res) {
+    app.get('/usr/367/logout', function (req, res) {
         req.session.destroy(function(err) {
             if (err) {
                 console.error('Error logging out:', err);
@@ -482,7 +482,7 @@ module.exports = function(app, webData) {
         });
     });
 
-    app.post('/submit', function(req, res) {
+    app.post('/usr/367/submit', function(req, res) {
         const { first_name, last_name, email, reason, dog, query } = req.body;
       
         // Logging request body for debugging
@@ -559,7 +559,7 @@ module.exports = function(app, webData) {
     });
 
     // Define a route for the submission confirmation page
-    app.get('/submission-confirmation', function (req,res) {
+    app.get('/usr/367/submission-confirmation', function (req,res) {
         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
         res.render("submission-confirmation.ejs", dataWithLoggedIn);                                                                     
     });
@@ -579,7 +579,7 @@ module.exports = function(app, webData) {
         });
     });
 
-    app.post('/editDog/:id', (req, res) => {
+    app.post('/usr/367/editDog/:id', (req, res) => {
         const dogId = req.params.id;
         const { name, breed, age, location, description } = req.body;
     
