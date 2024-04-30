@@ -151,8 +151,8 @@
     color: white;
     border: none;
     border-radius: 5px;
-    margin-top: 20px;
-    margin-left: 20px; /* Adjust the top margin */
+    margin-top: 10px;
+    margin-left: 10px; /* Adjust the top margin */
   }
   
   .buy-button:hover{
