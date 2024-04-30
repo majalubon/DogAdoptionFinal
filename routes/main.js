@@ -283,7 +283,7 @@ module.exports = function(app, webData) {
                         req.session.loggedIn = true;
                         req.session.userId = rows[0].userId;
 
-                        res.redirect('/usr/367/');
+                        res.redirect('/');
                     } else {
                         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn, error: 'Incorrect password.' };
                         res.render('login.ejs', dataWithLoggedIn);
@@ -438,7 +438,7 @@ module.exports = function(app, webData) {
      
     
    
-    app.get('/usr/367/logout', function (req, res) {
+    app.get('/logout', function (req, res) {
         req.session.destroy(function(err) {
             if (err) {
                 console.error('Error logging out:', err);
@@ -528,7 +528,7 @@ module.exports = function(app, webData) {
           }
       
           console.log('Form submission successful:', result);
-          res.redirect('/submission-confirmation');
+          res.redirect('/usr/367/submission-confirmation');
         });
       });
       
