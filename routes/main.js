@@ -282,9 +282,8 @@ module.exports = function(app, webData) {
                         // Set the user as logged in and store userId in the session
                         req.session.loggedIn = true;
                         req.session.userId = rows[0].userId;
-    
-                        // Redirect to the basket
-                        res.redirect('/');
+
+                        res.redirect('/usr/367/');
                     } else {
                         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn, error: 'Incorrect password.' };
                         res.render('login.ejs', dataWithLoggedIn);
