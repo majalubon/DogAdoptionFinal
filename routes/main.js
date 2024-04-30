@@ -287,7 +287,7 @@ module.exports = function(app, webData) {
                         res.redirect('/');
                     } else {
                         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn, error: 'Incorrect password.' };
-                        res.render('login', dataWithLoggedIn);
+                        res.render('login.ejs', dataWithLoggedIn);
                     }
                 });
             }
