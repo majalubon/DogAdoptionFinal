@@ -152,8 +152,7 @@
     border: none;
     border-radius: 5px;
     margin-top: -220px;
-    margin-left: -400x; 
-    position: relative; /* Set position to relative */
+    margin-left: -400x;
     z-index: 1;
   }
   
