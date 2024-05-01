@@ -420,15 +420,21 @@
   
   /* Image Section Styles */
   .image-container {
-    position: relative; /* Ensure the container is a positioned parent */
+    position: relative;
     text-align: center;
-    margin-top: 20px; /* Adjust spacing from top */
+    margin-top: 20px;
+    max-width: 100%; /* Ensure container doesn't exceed the viewport width */
   }
   
-  
   .image-container img {
-    max-width: 75%;
-    height: auto;
+    width: 100%; /* Set the image width to 100% of its container */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  @media (max-width: 768px) {
+    .image-container {
+      max-width: 75%; /* Adjust container width for smaller screens */
+    }
   }
   /* Overlay container for About Us text */
   .about-us-overlay {
