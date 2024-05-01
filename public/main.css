@@ -427,7 +427,7 @@
   }
   
   .image-container img {
-    width: 100%; /* Set the image width to 100% of its container */
+    max-width: 75%; /* Set the image width to 100% of its container */
     height: auto; /* Maintain aspect ratio */
   }
   
