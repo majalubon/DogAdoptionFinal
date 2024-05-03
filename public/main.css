@@ -373,12 +373,16 @@
   
   form label {
     display: block;
-    align-items: center;
     margin-bottom: 5px;
     font-family: "Trebuchet MS";
   }
   
-  button.submitbtn {
+  .button-container{
+    display: flex;
+    align-items: center;
+  }
+  
+  .submitbtn {
     background-color: #5f9ea0;
     color: #fff;
     border: none;
@@ -389,11 +393,11 @@
     transition: background-color 0.3s ease;
   }
   
-  button.submitbtn:hover {
+  .submitbtn:hover {
     background-color: #808080;
   }
 
-  button.removebtn {
+  .removebtn {
     background-color: #5f9ea0;
     color: #fff;
     border: none;
@@ -404,7 +408,7 @@
     transition: background-color 0.3s ease;
   }
   
-  button.removebtn:hover {
+  .removebtn:hover {
     background-color: #808080;
   }
 

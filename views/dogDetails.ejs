@@ -79,6 +79,7 @@
         <p>Description: <%= dog.description %></p>
 
         <% if (loggedIn) { %>
+          <div class="button-container">
             <button class="submitbtn" onclick="toggleEditForm()">Edit Dog Information</button>
             <form id="editForm" action="/editDog/<%= dog.id %>" method="post" style="display: none;">
                 <input type="hidden" name="dogId" value="<%= dog.id %>">
@@ -103,6 +104,7 @@
                 <input type="hidden" name="dogId" value="<%= dog.id %>">
                 <button type="submit" class="removebtn">Remove Dog</button>
             </form>
+          </div>
         <% } %>
 
     <% } else { %>
