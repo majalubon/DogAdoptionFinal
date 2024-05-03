@@ -481,6 +481,22 @@ module.exports = function(app, webData) {
             res.render('dogDetails.ejs', data);
         });
     });
+    app.post('/removeDog/:id', (req, res) => {
+        const dogId = req.params.id;
+    
+        // Execute SQL DELETE query to remove the dog from the database
+        const sqlDeleteQuery = 'DELETE FROM dogs WHERE id = ?';
+        db.query(sqlDeleteQuery, [dogId], (err, result) => {
+            if (err) {
+                console.error('Error removing dog:', err);
+                return res.status(500).send('Internal Server Error');
+            }
+    
+            console.log(`Dog with ID ${dogId} removed from database.`);
+            // Redirect to the index page or any other page as needed
+            res.redirect('/');
+        });
+    });
 
     app.post('/usr/367/submit', function(req, res) {
         const { first_name, last_name, email, reason, dog, query } = req.body;

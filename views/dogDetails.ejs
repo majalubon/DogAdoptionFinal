@@ -63,55 +63,58 @@
     </div>
   </div>
   <h2>Dog Profile</h2>
-  <div class="dog-profile-container">
-      <% if (dog) { %>
-          <h2><%= dog.name %></h2>
-          <p>Breed: <%= dog.breed %></p>
-          <p>Age: <%= dog.age %></p>
-          <p>Location: <%= dog.location%><p>
-  
-          <% if (imagePath) { %>
-              <img src="/<%= imagePath %>" alt="<%= dog.name %> Image">
-          <% } else { %>
-              <p class="no-image">No image available</p>
-          <% } %>
-  
-          <p>Description: <%= dog.description %></p>
-  
-          <% if (loggedIn) { %>
-              <button class="submitbtn" onclick="toggleEditForm()">Edit Dog Information</button>
-              <form id="editForm" action="/editDog/<%= dog.id %>" method="post" style="display: none;">
-                  <input type="hidden" name="dogId" value="<%= dog.id %>">
-                  <label for="name">Name:</label>
-                  <input type="text" id="name" name="name" value="<%= dog.name %>"class="edit-input">
-                  <br>
-                  <label for="breed">Breed:</label>
-                  <input type="text" id="breed" name="breed" value="<%= dog.breed %>" class="edit-input">
-                  <br>
-                  <label for="location">Location:</label>
-                  <input type="text" id="location" name="location" value="<%= dog.location %>" class="edit-input">
-                  <br>
-                  <label for="age">Age:</label>
-                  <input type="text" id="age" name="age" value="<%= dog.age %>" class="edit-input">
-                  <br>
-                  <label for="description">Description:</label>
-                  <textarea id="description" name="description" rows="4" cols="50" class="edit-input"><%= dog.description %></textarea>
-                  <br>
-                  <button type="submit" class="submitbtn">Save Changes</button>
-              </form>
-          <% } %>
-  
-      <% } else { %>
-          <p>Dog not found</p>
-      <% } %>
-  </div>
+<div class="dog-profile-container">
+    <% if (dog) { %>
+        <h2><%= dog.name %></h2>
+        <p>Breed: <%= dog.breed %></p>
+        <p>Age: <%= dog.age %></p>
+        <p>Location: <%= dog.location %><p>
 
-  <script>
+        <% if (imagePath) { %>
+            <img src="/<%= imagePath %>" alt="<%= dog.name %> Image">
+        <% } else { %>
+            <p class="no-image">No image available</p>
+        <% } %>
+
+        <p>Description: <%= dog.description %></p>
+
+        <% if (loggedIn) { %>
+            <button class="submitbtn" onclick="toggleEditForm()">Edit Dog Information</button>
+            <form id="editForm" action="/editDog/<%= dog.id %>" method="post" style="display: none;">
+                <input type="hidden" name="dogId" value="<%= dog.id %>">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" value="<%= dog.name %>" class="edit-input">
+                <br>
+                <label for="breed">Breed:</label>
+                <input type="text" id="breed" name="breed" value="<%= dog.breed %>" class="edit-input">
+                <br>
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" value="<%= dog.location %>" class="edit-input">
+                <br>
+                <label for="age">Age:</label>
+                <input type="text" id="age" name="age" value="<%= dog.age %>" class="edit-input">
+                <br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" rows="4" cols="50" class="edit-input"><%= dog.description %></textarea>
+                <br>
+                <button type="submit" class="submitbtn">Save Changes</button>
+            </form>
+            <form id="removeForm" action="/removeDog/<%= dog.id %>" method="post">
+                <input type="hidden" name="dogId" value="<%= dog.id %>">
+                <button type="submit" class="submitbtn">Remove Dog</button>
+            </form>
+        <% } %>
+
+    <% } else { %>
+        <p>Dog not found</p>
+    <% } %>
+</div>
+
+<script>
     function toggleEditForm() {
         var editForm = document.getElementById("editForm");
         editForm.style.display = editForm.style.display === "none" ? "block" : "none";
     }
-  </script>
+</script>
 </body>
-
 </html>
