@@ -79,11 +79,12 @@
     <% } %>
   </div>
 
-  <!-- Add a button or link to navigate to the 'addpost' page -->
-  <div class="button-container">
-      <a href="/addpost"><button class="buy-button">Add New Post</button></a>
-  </div>
+  <% if (loggedIn) { %>
 
+    <div class="button-container">
+      <a href="/addpost"><button class="buy-button">Add New Post</button></a>
+    </div>
+  <% } %>
 
   </body>
 </html>
