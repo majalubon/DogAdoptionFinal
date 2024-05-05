@@ -64,7 +64,7 @@
   <% posts.forEach(post => { %>
   <div class="post">
     <h4><%= post.name %></h4>
-    <a href="/dogs/<%= post.dogId %>"> <!-- Anchor tag for dog page -->
+    <a href="/dogs/<%= post.dogId %>"> 
       <% if (post.image_path) { %>
       <img src="<%= post.image_path %>" alt="Post Image">
       <% } %>
@@ -74,7 +74,7 @@
     <% if (loggedIn) { %>
       <form action="/deletepost" method="post">
         <input type="hidden" name="postId" value="<%= post.post_id %>">
-        <button class='submitbtn' type="submit">Delete Post</button>
+        <button  type="submit" class='submitbtn'>Delete Post</button>
       </form>
   <% } %>
   

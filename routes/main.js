@@ -390,19 +390,13 @@ module.exports = function(app, webData) {
         });
     });
     app.post('/deletepost', function(req, res) {
-        // Check if the user is logged in
-        if (!req.session.loggedIn) {
-            // If not authenticated, redirect to login page
-            return res.redirect('/login');
-        }
-        
         // Get the postId from the request body
         const postId = req.body.postId;
     
         // Construct the SQL query to delete the post
         const sqlQuery = 'DELETE FROM posts WHERE post_id = ?';
-        
-        // Execute the SQL query with postId
+    
+        // Execute the SQL query with postId as a parameter
         db.query(sqlQuery, [postId], (err, result) => {
             if (err) {
                 // If an error occurs during post deletion, send an internal server error response
