@@ -384,7 +384,7 @@ module.exports = function(app, webData) {
                     };
     
                     // Render the 'dogDetails.ejs' template with the prepared data
-                    res.render('posts.ejs', data);
+                    res.render("posts.ejs", data);
                 });
             });
         });
