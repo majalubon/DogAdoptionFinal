@@ -397,12 +397,12 @@ module.exports = function(app, webData) {
         }
         
         // Get the postId from the request parameters
-        const postId = req.params.postId;
+        const postId = req.params.post_id;
         // Get the userId from the session
-        const userId = req.session.userId;
+        const userId = req.session.UserId;
     
         // Construct the SQL query to delete the post
-        const sqlQuery = 'DELETE FROM posts WHERE postId = ? AND UserId = ?';
+        const sqlQuery = 'DELETE FROM posts WHERE post_id = ? AND UserId = ?';
     
         // Execute the SQL query with postId and userId as parameters
         db.query(sqlQuery, [postId, userId], (err, result) => {
