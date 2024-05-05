@@ -560,6 +560,20 @@ module.exports = function(app, webData) {
             res.redirect('/queries');
         });
     });
+    app.post('/deleteQuery', function(req, res) {
+        const queryId = req.body.queryId;
+    
+        // Delete the query from the database
+        let sqlQuery = `DELETE FROM queries WHERE id = ?`;
+        db.query(sqlQuery, [queryId], (err, result) => {
+            if (err) {
+                console.error('Error deleting query:', err);
+                return res.status(500).send('Internal Server Error');
+            }
+    
+            res.redirect('/queries');
+        });
+    });
 
     app.post('/editDog/:id', (req, res) => {
         const dogId = req.params.id;
