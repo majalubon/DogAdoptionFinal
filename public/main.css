@@ -361,10 +361,10 @@
     width: 100%;
     height: 40px;
     margin-bottom: 20px;
-    padding: 5px; /* Adjust padding for input fields */
+    padding: 5px;
     font-size: 16px;
     border: 1px solid #ccc;
-    box-sizing: border-box; /* Ensure padding and border don't affect width */
+    box-sizing: border-box; 
   }
   
   .edit-input:focus {
@@ -421,15 +421,6 @@
     }
   }
   
-  .weather-icon {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    font-size: 24px; /* Adjust the size of the icon */
-    color: #f1c40f; /* Choose a color for the sun icon */
-    z-index: 1000; /* Ensure the icon is above other content */
-    cursor: pointer; /* Optional: Change cursor to pointer on hover */
-  }
   
   .user-icon {
     position: fixed;
@@ -592,19 +583,19 @@
     padding: 0;
   }
   
-  /* Style the overall container */
+  
   .admin-queries-container ul {
     list-style: none;
   }
   
-  /* Style each query item */
+ 
   .admin-queries-container li {
     display: flex;
     flex-direction: column;
-    margin-bottom: 20px; /* Spacing between each query item */
+    margin-bottom: 20px; 
   }
   
-  /* Style the query container */
+  
   .admin-queries-container .query-container {
     display: flex;
     flex-direction: column;
@@ -613,43 +604,42 @@
     padding: 20px;
   }
   
-  /* Style the query details section */
+  
   .admin-queries-container .query-details {
     margin-bottom: 20px;
   }
   
-  /* Style the update form section */
+  
   .admin-queries-container .update-form {
     display: flex;
     flex-direction: column;
   }
   
-  /* Style form elements */
+  
   .admin-queries-container form {
     margin-top: 10px;
   }
   
-  /* Style the update query title */
+  
   .admin-queries-container .update-form h3 {
     margin-bottom: 10px;
   }
   
-  /* Ensure the query container fills the width */
+ 
   .admin-queries-container .query-container {
     width: 100%;
   }
   
   /* Media query for responsiveness */
   @media (min-width: 768px) {
-    /* Arrange query items in a row on larger screens */
     .admin-queries-container ul {
       display: flex;
       flex-wrap: wrap;
     }
   
-    /* Adjust width for each query item on larger screens */
+    
     .admin-queries-container li {
-      width: calc(50% - 20px); /* Adjust as needed for spacing */
+      width: calc(50% - 20px); 
       margin-right: 20px;
     }
   }
