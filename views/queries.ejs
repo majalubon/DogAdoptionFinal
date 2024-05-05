@@ -122,11 +122,11 @@
 
     // Function to confirm delete
     function confirmDelete(queryId) {
-      if (confirm("Are you sure you want to delete this query?")) {
-        // If user confirms, redirect to delete endpoint with queryId
-        window.location.href = "/usr/367/deleteQuery?queryId=" + queryId;
-      }
+    if (confirm("Are you sure you want to delete this query?")) {
+      // If user confirms, redirect to delete endpoint with queryId
+      window.location.href = "/deleteQuery?queryId=" + queryId;
     }
+  }
   </script>
 
 </body>
