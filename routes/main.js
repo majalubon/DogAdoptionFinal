@@ -460,7 +460,7 @@ module.exports = function(app, webData) {
     
             console.log(`Dog with ID ${dogId} removed from database.`);
             // Redirect to the index page or any other page as needed
-            res.redirect('/');
+            res.redirect('./');
         });
     });
 
@@ -511,7 +511,7 @@ module.exports = function(app, webData) {
           }
       
           console.log('Form submission successful:', result);
-          res.redirect('/submission-confirmation');
+          res.redirect('./submission-confirmation');
         });
       });
       
@@ -557,7 +557,7 @@ module.exports = function(app, webData) {
                 return res.status(500).send('Internal Server Error');
             }
     
-            res.redirect('/queries');
+            res.redirect('./queries');
         });
     });
     app.post('/usr/367/deleteQuery', function(req, res) {
@@ -571,7 +571,7 @@ module.exports = function(app, webData) {
                 return res.status(500).send('Internal Server Error');
             }
     
-            res.redirect('/queries');
+            res.redirect('./queries');
         });
     });
 
@@ -588,7 +588,7 @@ module.exports = function(app, webData) {
             }
     
             // Redirect to the updated dog's details page
-            res.redirect(`/dogs/${dogId}`);
+            res.redirect(`./dogs/${dogId}`);
         });
     });
         
