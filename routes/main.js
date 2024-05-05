@@ -397,7 +397,7 @@ module.exports = function(app, webData) {
         }
         
         // Get the postId from the request body
-        const postId = req.body.postId;
+        const postId = req.body.post_id;
     
         // Construct the SQL query to delete the post
         const sqlQuery = 'DELETE FROM posts WHERE post_id = ?';
