@@ -45,43 +45,9 @@ module.exports = function(app, webData) {
         if (req.session.userId) {
             next();
         } else {
-            res.redirect('login');
+            res.redirect('/login');
         }
     }
-
-    app.get('/weather', (req, res) => {
-        const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
-        res.render('weather.ejs', dataWithLoggedIn);
-    });
-    
-    // Handle the weather form submission
-    app.post('/weather', (req, res) => {
-        const apiKey = '697d17242610b50501f7f3360c501584';
-        const city = req.body.city; // Get the city name from the form
-    
-        if (!city) {
-            return res.status(400).send('City name is required');
-        }
-    
-        const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-    
-        // Make an HTTP request to the OpenWeatherMap API
-        request(apiUrl, { json: true }, (error, response, body) => {
-            if (error) {
-                console.error('Error fetching weather data:', error.message);
-                res.status(500).send('Error fetching weather data');
-            } else {
-                const weatherData = {
-                    description: body.weather[0].description,
-                    temperature: body.main.temp
-                };
-    
-                const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn, weatherData };
-                res.render('chosenweather.ejs', dataWithLoggedIn);
-            }
-        });
-    });
-
     
     app.get('/', (req, res) => {
         let sqlquery = "SELECT * FROM dogs WHERE adopt = 1"; // Filter dogs with adopt = true
@@ -208,7 +174,7 @@ module.exports = function(app, webData) {
         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
         res.render("register.ejs", dataWithLoggedIn);                                                                     
     });                                                                                                 
-    app.post('/usr/367/registered', [
+    app.post('/registered', [
         // Validation rules
         body('username').notEmpty().trim().escape(),
         body('first').notEmpty().trim().escape(),
@@ -247,7 +213,7 @@ module.exports = function(app, webData) {
                     return res.status(500).send('An error occurred during database insertion.');
                 }
     
-                res.redirect('login');
+                res.redirect('/login');
             });
         });
     });
@@ -255,7 +221,7 @@ module.exports = function(app, webData) {
         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
         res.render('login.ejs', dataWithLoggedIn);
     });
-    app.post('/usr/367/loggedin', function (req, res) {
+    app.post('/loggedin', function (req, res) {
         const bcrypt = require('bcrypt');
     
         let username = req.body.username;
@@ -298,7 +264,7 @@ module.exports = function(app, webData) {
         let sqlquery = "SELECT * FROM users"; 
         db.query(sqlquery, (err, result) => {
             if (err) {
-                res.redirect('./');
+                res.redirect('/');
             }
             let newData = { ...webData, users: result, loggedIn: req.session.loggedIn };
             console.log(newData)
@@ -428,7 +394,7 @@ module.exports = function(app, webData) {
         let sqlquery = `SELECT * FROM dogs WHERE name LIKE "%${req.query.keyword}%"`;
         db.query(sqlquery, (err, result) => {
             if (err) {
-                res.redirect('./');
+                res.redirect('/');
             }
             let newData = { ...webData, availableDogs: result, loggedIn: req.session.loggedIn };
             console.log(newData);
@@ -498,7 +464,7 @@ module.exports = function(app, webData) {
         });
     });
 
-    app.post('/usr/367/submit', function(req, res) {
+    app.post('/submit', function(req, res) {
         const { first_name, last_name, email, reason, dog, query } = req.body;
       
         // Logging request body for debugging
@@ -545,7 +511,7 @@ module.exports = function(app, webData) {
           }
       
           console.log('Form submission successful:', result);
-          res.redirect('/usr/367/submission-confirmation');
+          res.redirect('/submission-confirmation');
         });
       });
       
@@ -575,7 +541,7 @@ module.exports = function(app, webData) {
     });
 
     // Define a route for the submission confirmation page
-    app.get('/usr/367/submission-confirmation', function (req,res) {
+    app.get('/submission-confirmation', function (req,res) {
         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn };
         res.render("submission-confirmation.ejs", dataWithLoggedIn);                                                                     
     });
@@ -595,7 +561,7 @@ module.exports = function(app, webData) {
         });
     });
 
-    app.post('/usr/367/editDog/:id', (req, res) => {
+    app.post('/editDog/:id', (req, res) => {
         const dogId = req.params.id;
         const { name, breed, age, location, description } = req.body;
     
@@ -611,11 +577,5 @@ module.exports = function(app, webData) {
             res.redirect(`/dogs/${dogId}`);
         });
     });
-    
-
-
-
-
-
-    
+        
 }
