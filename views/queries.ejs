@@ -84,7 +84,7 @@
                     <% if (loggedIn) { %>
                         <button class="submitbtn" onclick="toggleUpdateForm()">Update Query</button>
                         <div id="updateFormContainer" style="display: none;">
-                            <form action="/usr/367/updateQuery" method="post" class="update-form">
+                            <form action="/updateQuery" method="post" class="update-form">
                                 <input type="hidden" name="queryId" value="<%= query.id %>">
                                 <label for="status">Status:</label>
                                 <select name="status" class="edit-input">
