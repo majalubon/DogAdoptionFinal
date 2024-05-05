@@ -82,8 +82,7 @@
         </div>
         <div class="update-form">
           <% if (loggedIn) { %>
-          <button onclick="toggleUpdateForm()" class='submitbtn'>Update Query</button>
-          <!-- Change delete button to form submission button -->
+          <button class="submitbtn" onclick="toggleUpdateForm()" >Update Query</button>
           <form action="/deleteQuery" method="post" onsubmit="return confirm('Are you sure you want to delete this query?')">
             <input type="hidden" name="queryId" value="<%= query.id %>">
             <button type="submit" class="submitbtn">Delete Query</button>
