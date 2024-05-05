@@ -545,7 +545,7 @@ module.exports = function(app, webData) {
           }
       
           console.log('Form submission successful:', result);
-          res.redirect('/submission-confirmation');
+          res.redirect('/usr/367/submission-confirmation');
         });
       });
       
