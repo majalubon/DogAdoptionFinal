@@ -71,11 +71,12 @@
     </a>
     <p><%= post.post_content %></p>
     <p>Added by: <%= post.addedByUsername %></p>
-    <% if (loggedIn == post.addedByUsername) { %>
-    <form action="/deletepost/<%= post.id %>" method="post">
-      <button type="submit">Delete Post</button>
-    </form>
-    <% } %>
+    <% if (loggedIn) { %>
+      <form action="/deletepost/<%= post.id %>" method="post">
+          <button type="submit">Delete Post</button>
+      </form>
+  <% } %>
+  
   </div>
   <% }); %>
   <% } else { %>
