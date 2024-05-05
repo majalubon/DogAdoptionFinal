@@ -72,9 +72,10 @@
     <p><%= post.post_content %></p>
     <p>Added by: <%= post.addedByUsername %></p>
     <% if (loggedIn) { %>
-      <form action="/deletepost" method="post" onsubmit="return confirm('Are you sure you want to delete this post?');">
+      <form action="/deletepost" method="post">
+        <input type="hidden" name="postId" value="<%= post.post_id %>">
         <button class='submitbtn' type="submit">Delete Post</button>
-    </form>
+      </form>
   <% } %>
   
   </div>
