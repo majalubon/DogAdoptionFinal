@@ -389,17 +389,17 @@ module.exports = function(app, webData) {
             });
         });
     });
-    app.post('/deletepost/:postId', function(req, res) {
+    app.post('/deletepost', function(req, res) {
         // Check if the user is logged in
         if (!req.session.loggedIn) {
             // If not authenticated, redirect to login page
             return res.redirect('/login');
         }
         
-        // Get the postId from the request parameters
-        const postId = req.params.post_id;
+        // Get the postId from the request body
+        const postId = req.body.post_id;
         // Get the userId from the session
-        const userId = req.session.UserId;
+        const userId = req.session.userId;
     
         // Construct the SQL query to delete the post
         const sqlQuery = 'DELETE FROM posts WHERE post_id = ? AND UserId = ?';
