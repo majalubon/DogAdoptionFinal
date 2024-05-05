@@ -560,7 +560,7 @@ module.exports = function(app, webData) {
             res.redirect('./queries');
         });
     });
-    app.post('/usr/367/deleteQuery', function(req, res) {
+    app.post('/deleteQuery', function(req, res) {
         const queryId = req.body.queryId;
     
         // Delete the query from the database
