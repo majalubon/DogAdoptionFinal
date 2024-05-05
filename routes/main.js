@@ -411,7 +411,7 @@ module.exports = function(app, webData) {
             }
             
             // If the post was successfully deleted, redirect the user to the posts page
-            res.redirect('/posts');
+            res.redirect('./posts');
         });
     });
     app.get('/search-result', function (req, res) {
