@@ -76,7 +76,12 @@
         <% if (loggedIn) { %>
           <div class="button-container">
             <button class="submitbtn" onclick="toggleEditForm()">Edit Dog Information</button>
-            <br>
+            <form id="removeForm" action="/removeDog/<%= dog.id %>" method="post">
+              <input type="hidden" name="dogId" value="<%= dog.id %>">
+              <br>
+              <button type="submit" class="removebtn">Remove Dog</button>
+            </form>
+
             <form id="editForm" action="/editDog/<%= dog.id %>" method="post" style="display: none;">
                 <input type="hidden" name="dogId" value="<%= dog.id %>">
                 <label for="name">Name:</label>
@@ -95,11 +100,6 @@
                 <textarea id="description" name="description" rows="4" cols="50" class="edit-input"><%= dog.description %></textarea>
                 <br>
                 <button type="submit" class="submitbtn">Save Changes</button>
-            </form>
-            <form id="removeForm" action="/removeDog/<%= dog.id %>" method="post">
-                <input type="hidden" name="dogId" value="<%= dog.id %>">
-                <br>
-                <button type="submit" class="removebtn">Remove Dog</button>
             </form>
           </div>
         <% } %>
