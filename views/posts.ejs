@@ -73,7 +73,7 @@
     <p>Added by: <%= post.addedByUsername %></p>
     <% if (loggedIn) { %>
       <form action="/deletepost/<%= post.id %>" method="post">
-          <button type="submit">Delete Post</button>
+          <button class= 'submitbtn' type="submit">Delete Post</button>
       </form>
   <% } %>
   
