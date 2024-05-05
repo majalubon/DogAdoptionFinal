@@ -397,13 +397,12 @@ module.exports = function(app, webData) {
         }
         
         // Get the postId from the request body
-        const postId = req.body.post_id;
-        // Get the userId from the session
+        const postId = req.body.postId;
     
         // Construct the SQL query to delete the post
         const sqlQuery = 'DELETE FROM posts WHERE post_id = ?';
-    
-        // Execute the SQL query with postId and userId as parameters
+        
+        // Execute the SQL query with postId
         db.query(sqlQuery, [postId], (err, result) => {
             if (err) {
                 // If an error occurs during post deletion, send an internal server error response
@@ -411,18 +410,10 @@ module.exports = function(app, webData) {
                 return res.status(500).send('Internal Server Error');
             }
             
-            // Check if any rows were affected by the deletion
-            if (result.affectedRows === 0) {
-                // If no rows were affected, it means the post does not belong to the user
-                // Send a forbidden response
-                return res.status(403).send('Forbidden');
-            }
-            
             // If the post was successfully deleted, redirect the user to the posts page
             res.redirect('/posts');
         });
     });
-    
     app.get('/search-result', function (req, res) {
         let sqlquery = `SELECT * FROM dogs WHERE name LIKE "%${req.query.keyword}%"`;
         db.query(sqlquery, (err, result) => {
