@@ -71,7 +71,7 @@
     </a>
     <p><%= post.post_content %></p>
     <p>Added by: <%= post.addedByUsername %></p>
-    <% if (loggedIn && post.userId === loggedInUserId) { %>
+    <% if (loggedIn && post.userId === loggedIn) { %>
     <form action="/deletepost/<%= post.id %>" method="post">
       <button type="submit">Delete Post</button>
     </form>
