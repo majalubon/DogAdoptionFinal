@@ -249,7 +249,7 @@ module.exports = function(app, webData) {
                         req.session.loggedIn = true;
                         req.session.userId = rows[0].userId;
 
-                        res.redirect('/');
+                        res.redirect('./');
                     } else {
                         const dataWithLoggedIn = { ...webData, loggedIn: req.session.loggedIn, error: 'Incorrect password.' };
                         res.render('login.ejs', dataWithLoggedIn);
@@ -411,7 +411,7 @@ module.exports = function(app, webData) {
                 res.status(500).send('An error occurred while logging out.');
             } else {
                 // Redirect to the home page after logout
-                res.redirect('/');
+                res.redirect('./');
             }
         });
     });

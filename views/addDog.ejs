@@ -9,14 +9,14 @@
     <div class="title-navbar-container">
     <h1>Dog adoption and Fostering</h1>
     <div class="user-icon">
-      <a href="/login">
-          <i class="fas fa-user"></i>
-      </a>
-      
       <% if (loggedIn) { %>
-        <a href="/logout"></a>
+        <a href="/logout">
+          <i class="fas fa-user"></i>
+        </a>
       <% } else { %>
-          <a href="/login"></a>
+        <a href="/login">
+          <i class="fas fa-user"></i>
+        </a>
       <% } %>
     </div>
     <div class="topnav">
