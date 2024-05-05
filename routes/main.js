@@ -389,6 +389,40 @@ module.exports = function(app, webData) {
             });
         });
     });
+    app.post('/deletepost/:postId', function(req, res) {
+        // Check if the user is logged in
+        if (!req.session.loggedIn) {
+            // If not authenticated, redirect to login page
+            return res.redirect('/login');
+        }
+        
+        // Get the postId from the request parameters
+        const postId = req.params.postId;
+        // Get the userId from the session
+        const userId = req.session.userId;
+    
+        // Construct the SQL query to delete the post
+        const sqlQuery = 'DELETE FROM posts WHERE postId = ? AND UserId = ?';
+    
+        // Execute the SQL query with postId and userId as parameters
+        db.query(sqlQuery, [postId, userId], (err, result) => {
+            if (err) {
+                // If an error occurs during post deletion, send an internal server error response
+                console.error('Error deleting post:', err);
+                return res.status(500).send('Internal Server Error');
+            }
+            
+            // Check if any rows were affected by the deletion
+            if (result.affectedRows === 0) {
+                // If no rows were affected, it means the post does not belong to the user
+                // Send a forbidden response
+                return res.status(403).send('Forbidden');
+            }
+            
+            // If the post was successfully deleted, redirect the user to the posts page
+            res.redirect('/posts');
+        });
+    });
     
     app.get('/search-result', function (req, res) {
         let sqlquery = `SELECT * FROM dogs WHERE name LIKE "%${req.query.keyword}%"`;
