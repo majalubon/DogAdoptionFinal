@@ -146,13 +146,12 @@ module.exports = function(app, webData) {
     
             console.log('Retrieved posts:', result);
     
-            // Prepare template data and render the 'posts.ejs' template
             const postsData = result.map(post => ({
                 name: post.name,
                 image_path: post.image_path,
                 post_content: post.post_content,
                 addedByUsername: post.addedByUsername,
-                dogId: post.dogId // Include dogId in template data
+                dogId: post.dogId 
             }));
     
             const templateData = {
@@ -194,7 +193,7 @@ module.exports = function(app, webData) {
         const sanitizedEmail = req.sanitize(req.body.email);
         const sanitizedPassword = req.sanitize(req.body.password);
     
-        // Continue with registration logic
+        // Continue with registration 
         const bcrypt = require('bcrypt');
         const saltRounds = 10;
         const plainPassword = req.body.password;
@@ -337,10 +336,10 @@ module.exports = function(app, webData) {
         const imagePath = req.file ? req.file.path.replace(/\\/g, '/').replace('public/', '') : null;
         const userId = req.session.userId;
     
-        const dogName = req.body.name; // Assuming 'name' from the form corresponds to the dog's name
+        const dogName = req.body.name; 
         const postContent = req.body.post_content;
     
-        // Find the dog by name to get its ID (assuming dog names are unique)
+        // Find the dog by name to get its ID 
         const sqlQueryFindDog = 'SELECT id FROM dogs WHERE name = ?';
         db.query(sqlQueryFindDog, [dogName], (err, dogResult) => {
             if (err) {
